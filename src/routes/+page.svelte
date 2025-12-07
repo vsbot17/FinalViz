@@ -5,12 +5,9 @@
   import Chapter1 from '$lib/components/chapters/Chapter1.svelte';
   import Chapter2 from '$lib/components/chapters/Chapter2.svelte';
   import Chapter3 from '$lib/components/chapters/Chapter3.svelte';
-  // import Chapter4 from '$lib/components/chapters/Chapter4.svelte';
+  import Chapter4 from '$lib/components/chapters/Chapter4.svelte';
   // import Chapter5 from '$lib/components/chapters/Chapter5.svelte';
   // import Chapter6 from '$lib/components/chapters/Chapter6.svelte';
-  // import Chapter7 from '$lib/components/chapters/Chapter7.svelte';
-  // import Chapter8 from '$lib/components/chapters/Chapter8.svelte';
-  // import Chapter9 from '$lib/components/chapters/Chapter9.svelte';
   // import Chapter10 from '$lib/components/chapters/Chapter10.svelte';
 
   let chapterElements: (HTMLElement | null)[] = [];
@@ -102,11 +99,11 @@
       <Chapter3 />
     </section>
 
-    <!-- <section bind:this={chapterElements[3]} class="chapter-section">
+   <section bind:this={chapterElements[3]} class="chapter-section">
       <Chapter4 />
     </section>
 
-    <section bind:this={chapterElements[4]} class="chapter-section">
+    <!--  <section bind:this={chapterElements[4]} class="chapter-section">
       <Chapter5 />
     </section>
 
@@ -116,14 +113,6 @@
 
     <section bind:this={chapterElements[6]} class="chapter-section">
       <Chapter7 />
-    </section>
-
-    <section bind:this={chapterElements[7]} class="chapter-section">
-      <Chapter8 />
-    </section>
-
-    <section bind:this={chapterElements[8]} class="chapter-section">
-      <Chapter9 />
     </section>
 
     <section bind:this={chapterElements[9]} class="chapter-section">
