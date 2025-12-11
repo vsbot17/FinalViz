@@ -13,7 +13,7 @@
   
   function nextChapter(): void {
     const current = $currentChapter;
-    if (current < 10) {
+    if (current < 6) {
       goToChapter(current + 1);
     }
   }
@@ -48,7 +48,7 @@
   </div>
   
   <div class="progress-bar">
-    <div class="progress-fill" style="width: {($currentChapter / 10) * 100}%"></div>
+    <div class="progress-fill" style="width: {($currentChapter / 6) * 100}%"></div>
   </div>
   
   {#if showMenu}
@@ -97,13 +97,13 @@
     </button>
     
     <span class="chapter-indicator">
-      Chapter {$currentChapter} of 10
+      Chapter {$currentChapter} of 6
     </span>
     
     <button 
       class="nav-btn next" 
       on:click={nextChapter}
-      disabled={$currentChapter === 10}
+      disabled={$currentChapter === 6}
       aria-label="Next chapter"
     >
       Next →

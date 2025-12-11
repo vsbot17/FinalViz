@@ -141,75 +141,226 @@
 
   function renderMap() {
     if (!mapContainer || countyData.length === 0) return;
+
+    const svgWidth = 800;
+    const svgHeight = 600;
+    const leftMargin = 80;
+    const rightMargin = 50;
+    const topMargin = 50;
+    const bottomMargin = 80;
+    const plotWidth = svgWidth - leftMargin - rightMargin;
+    const plotHeight = svgHeight - topMargin - bottomMargin;
+
+    // Determine axes: X = Average Commute Time, Y = Emissions
+    const valueKey = viewMode === 'total' ? 'co2_tons' : 'co2_per_capita';
+    const yAxisLabel = viewMode === 'total' ? 'Total Annual CO₂ Emissions (tons)' : 'Per Capita CO₂ Emissions (tons/person)';
     
-    // Simple visualization without external libraries
+    // Get data ranges for scaling
+    const commuteTimes = countyData.map(c => c.mean_commute || 0).filter(v => v > 0);
+    const minCommute = commuteTimes.length > 0 ? Math.min(...commuteTimes) : 0;
+    const maxCommute = commuteTimes.length > 0 ? Math.max(...commuteTimes) : 50;
+    
+    const values = countyData.map(c => c[valueKey]);
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+
+    // Circle size based on total workers (if available) or fixed size
+    function getRadius(county: any) {
+      if (county.total_workers) {
+        const maxWorkers = Math.max(...countyData.map(c => c.total_workers || 0));
+        const minR = 8, maxR = 35;
+        return Math.sqrt((county.total_workers || 0) / (maxWorkers || 1)) * (maxR - minR) + minR;
+      }
+      return 12; // Default radius
+    }
+
+    // SVG setup
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', '0 0 800 600');
+    svg.setAttribute('viewBox', `0 0 ${svgWidth} ${svgHeight}`);
     svg.style.width = '100%';
-    svg.style.height = '600px';
+    svg.style.height = `${svgHeight}px`;
     svg.style.background = 'rgba(255,255,255,0.05)';
     svg.style.borderRadius = '12px';
 
-    // PA state outline (simplified rectangle representation)
-    const outline = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    outline.setAttribute('x', '50');
-    outline.setAttribute('y', '50');
-    outline.setAttribute('width', '700');
-    outline.setAttribute('height', '500');
-    outline.setAttribute('fill', 'none');
-    outline.setAttribute('stroke', 'rgba(255,255,255,0.3)');
-    outline.setAttribute('stroke-width', '2');
-    outline.setAttribute('rx', '10');
-    svg.appendChild(outline);
+    // Plot area background
+    const plotArea = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    plotArea.setAttribute('x', String(leftMargin));
+    plotArea.setAttribute('y', String(topMargin));
+    plotArea.setAttribute('width', String(plotWidth));
+    plotArea.setAttribute('height', String(plotHeight));
+    plotArea.setAttribute('fill', 'rgba(255,255,255,0.02)');
+    plotArea.setAttribute('stroke', 'rgba(255,255,255,0.2)');
+    plotArea.setAttribute('stroke-width', '1');
+    svg.appendChild(plotArea);
+
+    // Draw X-axis (Commute Time)
+    const xAxis = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    xAxis.setAttribute('x1', String(leftMargin));
+    xAxis.setAttribute('y1', String(topMargin + plotHeight));
+    xAxis.setAttribute('x2', String(leftMargin + plotWidth));
+    xAxis.setAttribute('y2', String(topMargin + plotHeight));
+    xAxis.setAttribute('stroke', 'rgba(255,255,255,0.5)');
+    xAxis.setAttribute('stroke-width', '2');
+    svg.appendChild(xAxis);
+
+    // Draw Y-axis (Emissions)
+    const yAxis = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    yAxis.setAttribute('x1', String(leftMargin));
+    yAxis.setAttribute('y1', String(topMargin));
+    yAxis.setAttribute('x2', String(leftMargin));
+    yAxis.setAttribute('y2', String(topMargin + plotHeight));
+    yAxis.setAttribute('stroke', 'rgba(255,255,255,0.5)');
+    yAxis.setAttribute('stroke-width', '2');
+    svg.appendChild(yAxis);
+
+    // X-axis ticks and labels (Commute Time)
+    const xTickCount = 6;
+    for (let i = 0; i <= xTickCount; i++) {
+      const value = minCommute + (maxCommute - minCommute) * (i / xTickCount);
+      const x = leftMargin + (plotWidth * i / xTickCount);
+      
+      // Tick mark
+      const tick = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      tick.setAttribute('x1', String(x));
+      tick.setAttribute('y1', String(topMargin + plotHeight));
+      tick.setAttribute('x2', String(x));
+      tick.setAttribute('y2', String(topMargin + plotHeight + 5));
+      tick.setAttribute('stroke', 'rgba(255,255,255,0.4)');
+      tick.setAttribute('stroke-width', '1');
+      svg.appendChild(tick);
+      
+      // Label
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', String(x));
+      label.setAttribute('y', String(topMargin + plotHeight + 22));
+      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('fill', 'rgba(255,255,255,0.8)');
+      label.setAttribute('font-size', '12');
+      label.textContent = value.toFixed(0);
+      svg.appendChild(label);
+    }
+
+    // Y-axis ticks and labels (Emissions)
+    const yTickCount = 6;
+    for (let i = 0; i <= yTickCount; i++) {
+      const value = minValue + (maxValue - minValue) * (1 - i / yTickCount); // Invert for SVG coordinates
+      const y = topMargin + (plotHeight * i / yTickCount);
+      
+      // Tick mark
+      const tick = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      tick.setAttribute('x1', String(leftMargin));
+      tick.setAttribute('y1', String(y));
+      tick.setAttribute('x2', String(leftMargin - 5));
+      tick.setAttribute('y2', String(y));
+      tick.setAttribute('stroke', 'rgba(255,255,255,0.4)');
+      tick.setAttribute('stroke-width', '1');
+      svg.appendChild(tick);
+      
+      // Label
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', String(leftMargin - 10));
+      label.setAttribute('y', String(y + 4));
+      label.setAttribute('text-anchor', 'end');
+      label.setAttribute('fill', 'rgba(255,255,255,0.8)');
+      label.setAttribute('font-size', '12');
+      if (viewMode === 'total') {
+        label.textContent = (value / 1000).toFixed(0) + 'K';
+      } else {
+        label.textContent = value.toFixed(1);
+      }
+      svg.appendChild(label);
+    }
+
+    // X-axis title
+    const xAxisTitle = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    xAxisTitle.setAttribute('x', String(leftMargin + plotWidth / 2));
+    xAxisTitle.setAttribute('y', String(svgHeight - 20));
+    xAxisTitle.setAttribute('text-anchor', 'middle');
+    xAxisTitle.setAttribute('fill', 'rgba(255,255,255,0.9)');
+    xAxisTitle.setAttribute('font-size', '14');
+    xAxisTitle.setAttribute('font-weight', '600');
+    xAxisTitle.textContent = 'Average Commute Time (minutes)';
+    svg.appendChild(xAxisTitle);
+
+    // Y-axis title
+    const yAxisTitle = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    yAxisTitle.setAttribute('x', String(20));
+    yAxisTitle.setAttribute('y', String(topMargin + plotHeight / 2));
+    yAxisTitle.setAttribute('text-anchor', 'middle');
+    yAxisTitle.setAttribute('fill', 'rgba(255,255,255,0.9)');
+    yAxisTitle.setAttribute('font-size', '14');
+    yAxisTitle.setAttribute('font-weight', '600');
+    yAxisTitle.setAttribute('transform', `rotate(-90, 20, ${topMargin + plotHeight / 2})`);
+    yAxisTitle.textContent = yAxisLabel;
+    svg.appendChild(yAxisTitle);
 
     // Plot counties as circles
-    countyData.forEach(county => {
-      // Map coordinates to SVG space (simple scaling)
-      const x = ((county.lon + 80.5) / 5) * 700 + 50;
-      const y = ((42.5 - county.lat) / 3) * 500 + 50;
-
-      const value = viewMode === 'total' ? county.co2_tons : county.co2_per_capita;
-      const maxValue = viewMode === 'total' ? 
-        Math.max(...countyData.map(c => c.co2_tons)) :
-        Math.max(...countyData.map(c => c.co2_per_capita));
+    countyData.forEach((county: any) => {
+      const commuteTime = county.mean_commute || (minCommute + maxCommute) / 2;
+      const emissionValue = county[valueKey];
       
-      const radius = Math.sqrt(value / maxValue) * 50 + 10;
+      // Map to plot coordinates
+      const x = leftMargin + ((commuteTime - minCommute) / (maxCommute - minCommute || 1)) * plotWidth;
+      const y = topMargin + plotHeight - ((emissionValue - minValue) / (maxValue - minValue || 1)) * plotHeight;
+
+      const radius = getRadius(county);
 
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', x.toString());
-      circle.setAttribute('cy', y.toString());
-      circle.setAttribute('r', radius.toString());
+      circle.setAttribute('cx', String(x));
+      circle.setAttribute('cy', String(y));
+      circle.setAttribute('r', String(radius));
       circle.setAttribute('fill', '#ff6b6b');
       circle.setAttribute('fill-opacity', '0.6');
       circle.setAttribute('stroke', '#ff6b6b');
       circle.setAttribute('stroke-width', '2');
       circle.style.cursor = 'pointer';
-      circle.style.transition = 'all 0.3s';
-
       circle.addEventListener('mouseenter', () => {
         circle.setAttribute('fill-opacity', '0.9');
         circle.setAttribute('stroke-width', '3');
         selectedCounty = county;
       });
-
       circle.addEventListener('mouseleave', () => {
         circle.setAttribute('fill-opacity', '0.6');
         circle.setAttribute('stroke-width', '2');
       });
-
       svg.appendChild(circle);
 
-      // Label for major counties (top 5 or those with significant emissions)
-      const topEmitters = countyData.slice(0, 5).map(c => c.county);
-      if (topEmitters.includes(county.county) || county.co2_tons > (countyData[0]?.co2_tons || 0) * 0.3) {
+      // Add county name label
+      const nameLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      nameLabel.setAttribute('x', String(x));
+      nameLabel.setAttribute('y', String(y - radius - 8));
+      nameLabel.setAttribute('text-anchor', 'middle');
+      nameLabel.setAttribute('font-size', '11');
+      nameLabel.setAttribute('fill', '#ffffff');
+      nameLabel.setAttribute('font-weight', '600');
+      nameLabel.setAttribute('stroke', '#000000');
+      nameLabel.setAttribute('stroke-width', '0.5');
+      nameLabel.setAttribute('stroke-opacity', '0.7');
+      nameLabel.textContent = county.county;
+      svg.appendChild(nameLabel);
+
+      // Annotate top emitter
+      const isTop = emissionValue === maxValue;
+      if (isTop) {
+        const labelX = x + radius + 25;
+        const labelY = y - 5;
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', String(x + radius));
+        line.setAttribute('y1', String(y));
+        line.setAttribute('x2', String(labelX - 4));
+        line.setAttribute('y2', String(labelY));
+        line.setAttribute('stroke', '#ffd93d');
+        line.setAttribute('stroke-width', '1.5');
+        svg.appendChild(line);
         const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        text.setAttribute('x', x.toString());
-        text.setAttribute('y', (y + radius + 15).toString());
-        text.setAttribute('text-anchor', 'middle');
-        text.setAttribute('fill', 'white');
-        text.setAttribute('font-size', '12');
+        text.setAttribute('x', String(labelX));
+        text.setAttribute('y', String(labelY));
+        text.setAttribute('fill', '#ffd93d');
+        text.setAttribute('font-size', '13');
         text.setAttribute('font-weight', 'bold');
-        text.textContent = county.county;
+        text.setAttribute('stroke', '#333');
+        text.setAttribute('stroke-width', '0.7');
+        text.textContent = viewMode === 'total' ? 'Top Emitter' : 'Highest per Capita';
         svg.appendChild(text);
       }
     });
@@ -260,7 +411,84 @@
       </p>
     </div>
 
+    <!-- STORY CONTEXT & CHART TITLE -->
+    <div class="graph-story-context">
+      <h2>
+        {viewMode === 'total'
+          ? 'Commute Time vs. Total Emissions'
+          : 'Commute Time vs. Per Capita Emissions'}
+      </h2>
+      <p>
+        {viewMode === 'total'
+          ? 'Each circle represents a county. The X-axis shows average commute time; the Y-axis shows total annual CO₂ emissions. Circle size represents number of workers. Higher and further right = more emissions and longer commutes.'
+          : 'Each circle represents a county. The X-axis shows average commute time; the Y-axis shows per capita emissions. Circle size represents number of workers. Higher and further right = higher individual impact and longer commutes.'}
+      </p>
+    </div>
+
+    <!-- BUBBLE LEGEND / KEY (above map) -->
+    <div class="key-card">
+      <div class="legend-row">
+        <svg width="32" height="32"><circle cx="16" cy="16" r="15" fill="#ff6b6b" fill-opacity="0.6"/></svg>
+        <span>{viewMode === 'total' ? 'Highest Total (tons)' : 'Highest per Capita (tons/person)'}</span>
+        <strong>
+          {viewMode === 'total'
+            ? Math.round(Math.max(...countyData.map(c => c.co2_tons))/1000) + 'K'
+            : Math.max(...countyData.map(c => c.co2_per_capita)).toFixed(2)}
+        </strong>
+      </div>
+      <div class="legend-row">
+        <svg width="20" height="20"><circle cx="10" cy="10" r="9" fill="#ff6b6b" fill-opacity="0.6"/></svg>
+        <span>Median Value</span>
+        <strong>
+          {viewMode === 'total'
+            ? Math.round(countyData.map(c=>c.co2_tons/1000).sort((a,b)=>a-b)[Math.floor(countyData.length/2)]) + 'K'
+            : countyData.map(c=>c.co2_per_capita).sort((a,b)=>a-b)[Math.floor(countyData.length/2)].toFixed(2)}
+        </strong>
+      </div>
+      <div class="legend-row">
+        <svg width="12" height="12"><circle cx="6" cy="6" r="5" fill="#ff6b6b" fill-opacity="0.6"/></svg>
+        <span>{viewMode === 'total' ? 'Lowest Total' : 'Lowest per Capita'}</span>
+        <strong>
+          {viewMode === 'total'
+            ? Math.round(Math.min(...countyData.map(c => c.co2_tons))/1000) + 'K'
+            : Math.min(...countyData.map(c => c.co2_per_capita)).toFixed(2)}
+        </strong>
+      </div>
+    </div>
+
     <div class="map-container" bind:this={mapContainer}></div>
+
+    {#if viewMode === 'total'}
+      <div class="insight-box">
+        <h3>🌆 Most emissions? Big cities by total, but ...</h3>
+        <ul>
+          {#each countyData.slice(0, 3) as c}
+            <li>
+              <strong>{c.county}:</strong> {(c.co2_tons/1000).toFixed(0)}K tons/year
+            </li>
+          {/each}
+        </ul>
+        <p>
+          Urban regions generate the most <em>total</em> emissions, reflecting both population size and
+          total driving. Policy efforts here have large aggregate benefits.
+        </p>
+      </div>
+    {:else}
+      <div class="insight-box">
+        <h3>🚘 Per-person: Rural counties, big outliers</h3>
+        <ul>
+          {#each [...countyData].sort((a, b) => b.co2_per_capita - a.co2_per_capita).slice(0, 3) as c}
+            <li>
+              <strong>{c.county}:</strong> {c.co2_per_capita.toFixed(2)} tons/person
+            </li>
+          {/each}
+        </ul>
+        <p>
+          Here, rural and suburban areas often top the list—longer solo commutes and sparse transit.
+          Targeting these counties with carpooling incentives or limited transit options could have a disproportionate impact per person.
+        </p>
+      </div>
+    {/if}
 
     {#if selectedCounty}
       <div class="county-detail">
@@ -310,18 +538,6 @@
       </div>
     </div>
 
-    <div class="insight-box">
-      <h3>💡 The Surprise</h3>
-      <p>
-        Urban counties like <strong>Philadelphia</strong> and <strong>Allegheny</strong> 
-        generate the most <em>total</em> emissions (due to population).
-      </p>
-      <p>
-        But when we look at emissions <strong>per person</strong>, rural and suburban 
-        counties often exceed urban areas. Why? <strong>Longer distances, less transit, 
-        more car-dependency.</strong>
-      </p>
-    </div>
   </div>
   {/if}
 </div>
@@ -528,24 +744,25 @@
   }
 
   .insight-box {
-    margin: 4rem auto;
-    padding: 2rem;
-    max-width: 800px;
-    background: rgba(255, 215, 0, 0.1);
-    border-left: 4px solid #ffd93d;
-    border-radius: 12px;
+    margin: 2rem auto 2.5rem auto;
+    background: rgba(255,255,255,0.13);
+    border-left: 4px solid #ffd700;
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    max-width: 700px;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.04);
   }
-
   .insight-box h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
     color: #ffd93d;
+    margin-top: 0;
   }
-
-  .insight-box p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin: 1rem 0;
+  .insight-box ul {
+    padding-left: 1.5rem;
+    margin-bottom: 0.7rem;
+  }
+  .insight-box li {
+    font-size: 1.1rem;
+    margin: 0.2em 0;
   }
 
   .loading-state {
@@ -553,6 +770,47 @@
     padding: 4rem 2rem;
     font-size: 1.5rem;
     opacity: 0.8;
+  }
+
+  .graph-story-context {
+    margin: 2.5rem auto 1.3rem auto;
+    text-align: center;
+    max-width: 700px;
+  }
+  .graph-story-context h2 {
+    color: #ffd93d;
+    margin-bottom: 0.35rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+  .graph-story-context p {
+    font-size: 1.08rem;
+    opacity: 0.85;
+    margin: 0 auto;
+  }
+  .key-card {
+    background: rgba(30,30,40,0.85);
+    color: #fff;
+    border-radius: 8px;
+    padding: 1.3em 2em;
+    margin: 1em auto 1.2em auto;
+    max-width: 350px;
+    font-size: 1em;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+  .key-card .legend-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3em;
+    gap: 0.8em;
+  }
+  .key-card strong {
+    margin-left: auto;
+    color: #ffd700;
+  }
+  .key-card svg {
+    vertical-align: middle;
+    display: inline-block;
   }
 
   @media (max-width: 768px) {
