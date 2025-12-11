@@ -7,13 +7,17 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			// default options are shown
-			pages: 'build',
-			assets: 'build',
+			// Output to docs folder for GitHub Pages
+			pages: 'docs',
+			assets: 'docs',
 			fallback: undefined,
 			precompress: false,
 			strict: true
-		})
+		}),
+		// Set base path for GitHub Pages (repository name)
+		paths: {
+			base: '/FinalViz'
+		}
 	}
 };
 
