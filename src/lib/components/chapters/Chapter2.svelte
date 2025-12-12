@@ -188,7 +188,7 @@
     svg.setAttribute('viewBox', `0 0 ${svgWidth} ${svgHeight}`);
     svg.style.width = '100%';
     svg.style.height = `${svgHeight}px`;
-    svg.style.background = 'rgba(255,255,255,0.05)';
+    svg.style.background = 'white';
     svg.style.borderRadius = '12px';
 
     // Plot area background
@@ -197,8 +197,8 @@
     plotArea.setAttribute('y', String(topMargin));
     plotArea.setAttribute('width', String(plotWidth));
     plotArea.setAttribute('height', String(plotHeight));
-    plotArea.setAttribute('fill', 'rgba(255,255,255,0.02)');
-    plotArea.setAttribute('stroke', 'rgba(255,255,255,0.2)');
+      plotArea.setAttribute('fill', '#f7fafc');
+      plotArea.setAttribute('stroke', '#e2e8f0');
     plotArea.setAttribute('stroke-width', '1');
     svg.appendChild(plotArea);
 
@@ -208,7 +208,7 @@
     xAxis.setAttribute('y1', String(topMargin + plotHeight));
     xAxis.setAttribute('x2', String(leftMargin + plotWidth));
     xAxis.setAttribute('y2', String(topMargin + plotHeight));
-    xAxis.setAttribute('stroke', 'rgba(255,255,255,0.5)');
+      xAxis.setAttribute('stroke', '#a0aec0');
     xAxis.setAttribute('stroke-width', '2');
     svg.appendChild(xAxis);
 
@@ -218,7 +218,7 @@
     yAxis.setAttribute('y1', String(topMargin));
     yAxis.setAttribute('x2', String(leftMargin));
     yAxis.setAttribute('y2', String(topMargin + plotHeight));
-    yAxis.setAttribute('stroke', 'rgba(255,255,255,0.5)');
+      yAxis.setAttribute('stroke', '#a0aec0');
     yAxis.setAttribute('stroke-width', '2');
     svg.appendChild(yAxis);
 
@@ -232,7 +232,7 @@
       tick.setAttribute('y1', String(topMargin + plotHeight));
       tick.setAttribute('x2', String(x));
       tick.setAttribute('y2', String(topMargin + plotHeight + 5));
-      tick.setAttribute('stroke', 'rgba(255,255,255,0.4)');
+            tick.setAttribute('stroke', '#cbd5e0');
       tick.setAttribute('stroke-width', '1');
       svg.appendChild(tick);
       
@@ -241,7 +241,7 @@
       label.setAttribute('x', String(x));
       label.setAttribute('y', String(topMargin + plotHeight + 25));
       label.setAttribute('text-anchor', 'middle');
-      label.setAttribute('fill', 'rgba(255,255,255,0.95)');
+            label.setAttribute('fill', '#2d3748');
       label.setAttribute('font-size', '14');
       label.setAttribute('font-weight', '600');
       label.textContent = county.county;
@@ -260,7 +260,7 @@
       tick.setAttribute('y1', String(y));
       tick.setAttribute('x2', String(leftMargin - 5));
       tick.setAttribute('y2', String(y));
-      tick.setAttribute('stroke', 'rgba(255,255,255,0.4)');
+            tick.setAttribute('stroke', '#cbd5e0');
       tick.setAttribute('stroke-width', '1');
       svg.appendChild(tick);
       
@@ -269,7 +269,7 @@
       label.setAttribute('x', String(leftMargin - 10));
       label.setAttribute('y', String(y + 4));
       label.setAttribute('text-anchor', 'end');
-      label.setAttribute('fill', 'rgba(255,255,255,0.8)');
+            label.setAttribute('fill', '#4a5568');
       label.setAttribute('font-size', '12');
       if (viewMode === 'total') {
         label.textContent = (value / 1000).toFixed(0) + 'K';
@@ -284,7 +284,7 @@
     xAxisTitle.setAttribute('x', String(leftMargin + plotWidth / 2));
     xAxisTitle.setAttribute('y', String(svgHeight - 25));
     xAxisTitle.setAttribute('text-anchor', 'middle');
-    xAxisTitle.setAttribute('fill', 'rgba(255,255,255,0.9)');
+      xAxisTitle.setAttribute('fill', '#2d3748');
     xAxisTitle.setAttribute('font-size', '14');
     xAxisTitle.setAttribute('font-weight', '600');
     xAxisTitle.textContent = 'Pennsylvania Counties/Metros';
@@ -295,7 +295,7 @@
     yAxisTitle.setAttribute('x', String(20));
     yAxisTitle.setAttribute('y', String(topMargin + plotHeight / 2));
     yAxisTitle.setAttribute('text-anchor', 'middle');
-    yAxisTitle.setAttribute('fill', 'rgba(255,255,255,0.9)');
+      yAxisTitle.setAttribute('fill', '#2d3748');
     yAxisTitle.setAttribute('font-size', '14');
     yAxisTitle.setAttribute('font-weight', '600');
     yAxisTitle.setAttribute('transform', `rotate(-90, 20, ${topMargin + plotHeight / 2})`);
@@ -334,7 +334,7 @@
       circle.addEventListener('click', () => {
         // Reset all circles
         circles.forEach(({ circle: c }) => {
-          c.setAttribute('fill-opacity', '0.6');
+          c.setAttribute('fill-opacity', '0.7');
           c.setAttribute('stroke-width', '2');
         });
         // Highlight clicked circle
@@ -350,7 +350,7 @@
       });
       circle.addEventListener('mouseleave', () => {
         if (selectedCounty?.county !== county.county) {
-          circle.setAttribute('fill-opacity', '0.6');
+          circle.setAttribute('fill-opacity', '0.7');
           circle.setAttribute('stroke-width', '2');
         }
       });
@@ -362,11 +362,9 @@
       valueLabel.setAttribute('y', String(y - radius - 10));
       valueLabel.setAttribute('text-anchor', 'middle');
       valueLabel.setAttribute('font-size', '12');
-      valueLabel.setAttribute('fill', '#ffffff');
+            valueLabel.setAttribute('fill', '#2d3748');
       valueLabel.setAttribute('font-weight', '600');
-      valueLabel.setAttribute('stroke', '#000000');
-      valueLabel.setAttribute('stroke-width', '0.5');
-      valueLabel.setAttribute('stroke-opacity', '0.7');
+            valueLabel.setAttribute('stroke', 'none');
       if (viewMode === 'total') {
         valueLabel.textContent = (emissionValue / 1000).toFixed(0) + 'K';
       } else {
@@ -380,7 +378,7 @@
       guideLine.setAttribute('y1', String(topMargin + plotHeight));
       guideLine.setAttribute('x2', String(x));
       guideLine.setAttribute('y2', String(y));
-      guideLine.setAttribute('stroke', 'rgba(255,255,255,0.15)');
+      guideLine.setAttribute('stroke', '#e2e8f0');
       guideLine.setAttribute('stroke-width', '1');
       guideLine.setAttribute('stroke-dasharray', '3,3');
       svg.insertBefore(guideLine, circle); // Insert before circle so it's behind
@@ -575,8 +573,8 @@
 <style>
   .chapter-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #0f3460 0%, #16213e 100%);
-    color: white;
+    background: #f5f7fa;
+    color: #2d3748;
     padding: 4rem 2rem;
   }
 
@@ -587,13 +585,14 @@
 
   .chapter-header h1 {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 1rem;
+    color: #2c5282;
   }
 
   .subtitle {
     font-size: 1.5rem;
-    opacity: 0.9;
+    color: #4a5568;
   }
 
   .content-wrapper {
@@ -605,9 +604,10 @@
     text-align: center;
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(255, 107, 107, 0.1);
-    border-radius: 15px;
-    border: 2px solid #ff6b6b;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .key-stat {
@@ -619,19 +619,19 @@
 
   .stat-number {
     font-size: 4rem;
-    font-weight: 800;
-    color: #ff6b6b;
+    font-weight: 700;
+    color: #2c5282;
   }
 
   .stat-highlight {
     font-size: 5rem;
-    font-weight: 800;
-    color: #ffd93d;
+    font-weight: 700;
+    color: #c05621;
   }
 
   .stat-label {
     font-size: 1.3rem;
-    opacity: 0.9;
+    color: #4a5568;
   }
 
   .map-controls {
@@ -643,25 +643,27 @@
     padding: 1rem 2rem;
     font-size: 1.1rem;
     font-weight: 600;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: white;
+    color: #2c5282;
+    border: 2px solid #cbd5e0;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .view-toggle:hover,
   .view-toggle.active {
-    background: #4ecdc4;
-    border-color: #4ecdc4;
+    background: #4299e1;
+    border-color: #4299e1;
+    color: white;
     transform: translateY(-2px);
   }
 
   .control-hint {
     margin-top: 1rem;
     font-size: 1.1rem;
-    opacity: 0.8;
+    color: #4a5568;
   }
 
   .chart-and-details {
@@ -680,19 +682,21 @@
   .county-detail {
     flex: 0 0 350px;
     padding: 2rem;
-    background: rgba(78, 205, 196, 0.1);
-    border-left: 4px solid #4ecdc4;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #4299e1;
     border-radius: 12px;
     position: sticky;
     top: 2rem;
     max-height: calc(100vh - 4rem);
     overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .county-detail h3 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: #4ecdc4;
+    color: #2c5282;
     margin-top: 0;
   }
 
@@ -702,7 +706,7 @@
     right: 1rem;
     background: transparent;
     border: none;
-    color: rgba(255, 255, 255, 0.7);
+    color: #718096;
     font-size: 2rem;
     cursor: pointer;
     width: 32px;
@@ -715,8 +719,8 @@
   }
 
   .close-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: #e2e8f0;
+    color: #2d3748;
   }
 
   .detail-grid {
@@ -740,8 +744,8 @@
 
   .detail-value {
     font-size: 1.8rem;
-    font-weight: 800;
-    color: #4ecdc4;
+    font-weight: 700;
+    color: #2c5282;
   }
 
   .insight-box {
@@ -776,27 +780,28 @@
   .narrative-intro {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-intro h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-intro p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-intro strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .graph-story-context {
@@ -805,86 +810,87 @@
     max-width: 700px;
   }
   .graph-story-context h2 {
-    color: #ffd93d;
+    color: #2c5282;
     margin-bottom: 0.35rem;
     font-size: 2.2rem;
     font-weight: 700;
   }
   .chart-explanation {
     font-size: 1.08rem;
-    opacity: 0.85;
+    color: #4a5568;
     margin: 1rem auto;
     max-width: 800px;
     line-height: 1.7;
   }
   .chart-interaction-hint {
     font-size: 1rem;
-    opacity: 0.9;
+    color: #2d3748;
     margin: 1.5rem auto 0;
     padding: 1rem;
-    background: rgba(78, 205, 196, 0.1);
+    background: #ebf8ff;
     border-radius: 8px;
     max-width: 600px;
   }
   .chart-interaction-hint strong {
-    color: #4ecdc4;
+    color: #2c5282;
   }
   .graph-story-context p {
     font-size: 1.08rem;
-    opacity: 0.85;
+    color: #4a5568;
     margin: 0 auto;
   }
 
   .narrative-conclusion {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-conclusion h2 {
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-conclusion p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-conclusion strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .transition-prompt {
     font-size: 1.1rem;
     font-style: italic;
-    opacity: 0.9;
+    color: #4a5568;
     margin-top: 2rem;
     padding: 1.5rem;
-    background: rgba(255, 215, 0, 0.1);
-    border-left: 4px solid #ffd93d;
+    background: #ebf8ff;
+    border-left: 4px solid #4299e1;
     border-radius: 8px;
   }
 
   .key-insight {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #ffd93d;
+    color: #2d3748;
     margin-top: 2rem;
     padding: 2rem;
-    background: rgba(255, 215, 0, 0.15);
-    border-left: 4px solid #ffd93d;
+    background: #ebf8ff;
+    border-left: 4px solid #4299e1;
     border-radius: 8px;
   }
 
   .key-insight strong {
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   @media (max-width: 968px) {

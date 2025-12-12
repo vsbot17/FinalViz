@@ -600,8 +600,8 @@
 <style>
   .chapter-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #16213e 0%, #0f3460 100%);
-    color: white;
+    background: #f5f7fa;
+    color: #2d3748;
     padding: 4rem 2rem;
   }
 
@@ -612,13 +612,14 @@
 
   .chapter-header h1 {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 1rem;
+    color: #2c5282;
   }
 
   .subtitle {
     font-size: 1.5rem;
-    opacity: 0.9;
+    color: #4a5568;
   }
 
   .content-wrapper {
@@ -629,109 +630,115 @@
   .intro-section {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(78, 205, 196, 0.1);
-    border-left: 4px solid #4ecdc4;
+    background: white;
+    border-left: 4px solid #4299e1;
     border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-intro {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-intro h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-intro p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-intro strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .intro-text {
     font-size: 1.3rem;
     line-height: 1.8;
     margin: 0;
+    color: #2d3748;
   }
+
 
   .final-narrative {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
     line-height: 1.8;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .final-narrative h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .final-narrative p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
   }
 
   .final-narrative strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .call-to-action {
     font-size: 1.4rem;
     font-weight: 600;
-    color: #ffd93d;
+    color: #2d3748;
     margin-top: 2.5rem;
     padding: 2.5rem;
-    background: rgba(255, 215, 0, 0.15);
-    border-left: 4px solid #ffd93d;
+    background: #ebf8ff;
+    border-left: 4px solid #4299e1;
     border-radius: 8px;
   }
 
   .call-to-action strong {
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .final-statement {
     font-size: 1.6rem;
-    font-weight: 800;
-    color: #4ecdc4;
+    font-weight: 700;
+    color: #2c5282;
     margin-top: 3rem;
     padding: 2rem;
-    background: rgba(78, 205, 196, 0.15);
-    border: 2px solid #4ecdc4;
+    background: #ebf8ff;
+    border: 2px solid #4299e1;
     border-radius: 12px;
   }
 
   .calculator-section {
     margin: 4rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .calculator-section h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .input-group {
@@ -742,7 +749,7 @@
     display: block;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #2d3748;
   }
 
   .input-group input,
@@ -751,31 +758,31 @@
     max-width: 300px;
     padding: 0.75rem 1rem;
     font-size: 1.1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: white;
+    border: 2px solid #cbd5e0;
     border-radius: 8px;
-    color: white;
+    color: #2d3748;
   }
 
   .input-group input:focus,
   .input-group select:focus {
     outline: none;
-    border-color: #4ecdc4;
-    background: rgba(255, 255, 255, 0.15);
+    border-color: #4299e1;
+    background: white;
   }
 
   .results-box {
     margin-top: 2rem;
     padding: 2rem;
-    background: rgba(78, 205, 196, 0.1);
+    background: #ebf8ff;
     border-radius: 12px;
-    border-left: 4px solid #4ecdc4;
+    border-left: 4px solid #4299e1;
   }
 
   .results-box h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: #4ecdc4;
+    color: #2c5282;
   }
 
   .impact-grid {
@@ -788,28 +795,29 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
   }
 
   .impact-item.comparison.above {
-    border-left: 4px solid #ff6b6b;
+    border-left: 4px solid #c05621;
   }
 
   .impact-item.comparison.below {
-    border-left: 4px solid #51cf66;
+    border-left: 4px solid #38a169;
   }
 
   .impact-label {
     font-size: 0.9rem;
-    opacity: 0.8;
+    color: #718096;
     margin-bottom: 0.5rem;
   }
 
   .impact-value {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .options-section {
@@ -820,7 +828,7 @@
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .options-grid {
@@ -831,15 +839,16 @@
 
   .option-card {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: white;
     border-radius: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #e2e8f0;
     transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .option-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .option-header {
@@ -852,7 +861,7 @@
   .option-header h3 {
     font-size: 1.5rem;
     margin: 0;
-    color: #4ecdc4;
+    color: #2c5282;
   }
 
   .availability-badge {
@@ -863,13 +872,13 @@
   }
 
   .availability-badge.available {
-    background: rgba(81, 207, 102, 0.2);
-    color: #51cf66;
+    background: #c6f6d5;
+    color: #38a169;
   }
 
   .availability-badge.unavailable {
-    background: rgba(255, 107, 107, 0.2);
-    color: #ff6b6b;
+    background: #fed7d7;
+    color: #c05621;
   }
 
   .option-benefits {
@@ -881,7 +890,7 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #e2e8f0;
   }
 
   .benefit-item:last-child {
@@ -900,60 +909,62 @@
 
   .benefit-label {
     font-size: 0.9rem;
-    opacity: 0.8;
+    color: #718096;
     margin-bottom: 0.25rem;
   }
 
   .benefit-value {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .option-resources {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #e2e8f0;
   }
 
   .resource-link {
     display: block;
     padding: 0.75rem 0;
-    color: #4ecdc4;
+    color: #4299e1;
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.3s;
   }
 
   .resource-link:hover {
-    color: #ffd93d;
+    color: #2c5282;
     text-decoration: underline;
   }
 
   .collective-impact {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 215, 0, 0.1);
-    border-left: 4px solid #ffd93d;
+    background: #fff5eb;
+    border-left: 4px solid #c05621;
     border-radius: 12px;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .collective-impact h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .impact-statement {
     font-size: 1.3rem;
     line-height: 1.8;
+    color: #2d3748;
   }
 
   .big-number {
     font-size: 4rem;
-    font-weight: 800;
-    color: #51cf66;
+    font-weight: 700;
+    color: #38a169;
     margin: 1rem 0;
   }
 
@@ -966,7 +977,7 @@
     padding: 1.5rem;
     font-size: 1.3rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    background: #4299e1;
     color: white;
     border: none;
     border-radius: 12px;
@@ -976,15 +987,16 @@
   }
 
   .download-btn:hover {
+    background: #2c5282;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+    box-shadow: 0 4px 12px rgba(44, 82, 130, 0.3);
   }
 
   .loading-state {
     text-align: center;
     padding: 4rem 2rem;
     font-size: 1.5rem;
-    opacity: 0.8;
+    color: #4a5568;
   }
 
   @media (max-width: 768px) {
@@ -1001,4 +1013,3 @@
     }
   }
 </style>
-

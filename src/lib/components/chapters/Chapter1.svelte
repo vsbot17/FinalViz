@@ -227,8 +227,8 @@
 <style>
   .chapter-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: white;
+    background: #f5f7fa;
+    color: #2d3748;
     padding: 4rem 2rem;
   }
 
@@ -241,18 +241,15 @@
 
   .chapter-title {
     font-size: 4rem;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #2c5282;
   }
 
   .subtitle {
     font-size: 1.8rem;
-    opacity: 0.9;
-    font-weight: 300;
+    color: #4a5568;
+    font-weight: 400;
   }
 
   .story-sequence {
@@ -264,9 +261,9 @@
   .stat-reveal {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .big-stat {
@@ -277,14 +274,14 @@
   .big-stat .number {
     display: block;
     font-size: 6rem;
-    font-weight: 800;
-    color: #4ecdc4;
+    font-weight: 700;
+    color: #2c5282;
     line-height: 1;
   }
 
   .big-stat .unit {
     font-size: 2.5rem;
-    color: #4ecdc4;
+    color: #2c5282;
     margin-left: 0.5rem;
   }
 
@@ -296,27 +293,28 @@
   }
 
   .big-stat.climate .number {
-    color: #ff6b6b;
+    color: #c05621;
   }
 
   .big-stat.climate .unit {
-    color: #ff6b6b;
+    color: #c05621;
   }
 
   .stat-context {
     text-align: center;
     font-size: 1.3rem;
     margin-top: 1.5rem;
-    opacity: 0.85;
+    color: #4a5568;
   }
 
   .stat-context strong {
-    color: #ffd93d;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .impact-highlight {
-    background: rgba(255, 107, 107, 0.1);
-    border-left: 4px solid #ff6b6b;
+    background: #fff5eb;
+    border-left: 4px solid #c05621;
   }
 
   .emphasis {
@@ -329,8 +327,8 @@
   .callout {
     margin: 4rem auto;
     padding: 2rem;
-    background: rgba(255, 215, 0, 0.1);
-    border: 2px solid #ffd700;
+    background: #ebf8ff;
+    border: 2px solid #4299e1;
     border-radius: 12px;
     text-align: center;
   }
@@ -339,26 +337,29 @@
     font-size: 2rem;
     font-weight: 600;
     margin: 0;
+    color: #2c5282;
   }
 
   .calculator-section {
     max-width: 1000px;
     margin: 6rem auto;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .calculator-section h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #2c5282;
   }
 
   .calculator-intro {
     text-align: center;
     font-size: 1.2rem;
-    opacity: 0.9;
+    color: #4a5568;
     margin-bottom: 3rem;
   }
 
@@ -376,7 +377,7 @@
   input[type="range"] {
     width: 100%;
     height: 8px;
-    background: rgba(255, 255, 255, 0.2);
+    background: #e2e8f0;
     border-radius: 5px;
     outline: none;
   }
@@ -385,7 +386,7 @@
     appearance: none;
     width: 24px;
     height: 24px;
-    background: #4ecdc4;
+    background: #4299e1;
     border-radius: 50%;
     cursor: pointer;
   }
@@ -393,8 +394,8 @@
   .input-display {
     text-align: center;
     font-size: 3rem;
-    font-weight: 800;
-    color: #4ecdc4;
+    font-weight: 700;
+    color: #2c5282;
     margin-top: 1rem;
   }
 
@@ -407,19 +408,22 @@
 
   .result-card {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .result-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .result-card.highlight {
-    background: rgba(255, 107, 107, 0.15);
-    border: 2px solid #ff6b6b;
+    background: #fff5eb;
+    border: 2px solid #c05621;
   }
 
   .result-label {
@@ -432,16 +436,16 @@
 
   .result-value {
     font-size: 3rem;
-    font-weight: 800;
-    color: #4ecdc4;
+    font-weight: 700;
+    color: #2c5282;
   }
 
   .result-value.positive {
-    color: #51cf66;
+    color: #38a169;
   }
 
   .result-value.negative {
-    color: #ff6b6b;
+    color: #c05621;
   }
 
   .result-unit {
@@ -453,14 +457,15 @@
   .insight-box {
     margin-top: 3rem;
     padding: 2rem;
-    background: rgba(78, 205, 196, 0.1);
-    border-left: 4px solid #4ecdc4;
+    background: #ebf8ff;
+    border-left: 4px solid #4299e1;
     border-radius: 8px;
   }
 
   .insight-box p {
     margin: 0 0 1rem 0;
     font-size: 1.1rem;
+    color: #2d3748;
   }
 
   .insight-box ul {
@@ -472,44 +477,51 @@
   .insight-box li {
     padding: 0.5rem 0;
     font-size: 1.1rem;
+    color: #4a5568;
+  }
+
+  .insight-box strong {
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .narrative-section {
     max-width: 900px;
     margin: 4rem auto;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-section p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-section strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .narrative-section .emphasis-text {
     font-size: 1.4rem;
     font-weight: 600;
     text-align: center;
-    color: #ffd93d;
+    color: #2d3748;
     margin-top: 2.5rem;
     padding: 2rem;
-    background: rgba(255, 215, 0, 0.1);
-    border-left: 4px solid #ffd93d;
+    background: #ebf8ff;
+    border-left: 4px solid #4299e1;
     border-radius: 8px;
   }
 
@@ -517,14 +529,14 @@
     text-align: center;
     margin: 6rem 0 3rem;
     font-size: 1.5rem;
-    opacity: 0.9;
+    color: #4a5568;
   }
 
   .scroll-indicator {
     margin-top: 2rem;
     font-size: 1.2rem;
     animation: bounce 2s infinite;
-    opacity: 0.6;
+    color: #718096;
   }
 
   .loading-state {

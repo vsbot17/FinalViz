@@ -151,17 +151,17 @@
             {
               label: 'Drive Alone',
               data: [currentDriveEmissions, scenarioDriveEmissions],
-              backgroundColor: '#ff6b6b'
+              backgroundColor: '#c05621'
             },
             {
               label: 'Public Transit',
               data: [currentTransitEmissions, scenarioTransitEmissions],
-              backgroundColor: '#4ecdc4'
+              backgroundColor: '#4299e1'
             },
             {
               label: 'Work From Home',
               data: [0, 0],
-              backgroundColor: '#51cf66'
+              backgroundColor: '#38a169'
             }
           ]
         },
@@ -173,10 +173,10 @@
             x: { 
               stacked: true,
               ticks: {
-                color: 'rgba(255, 255, 255, 0.8)'
+                color: '#4a5568'
               },
               grid: {
-                color: 'rgba(255, 255, 255, 0.1)'
+                color: '#e2e8f0'
               }
             },
             y: {
@@ -185,13 +185,13 @@
               title: {
                 display: true,
                 text: 'Annual CO₂ Emissions (tons)',
-                color: 'rgba(255, 255, 255, 0.8)'
+                color: '#2d3748'
               },
               ticks: {
-                color: 'rgba(255, 255, 255, 0.8)'
+                color: '#4a5568'
               },
               grid: {
-                color: 'rgba(255, 255, 255, 0.1)'
+                color: '#e2e8f0'
               }
             }
           },
@@ -199,14 +199,14 @@
             legend: { 
               position: 'bottom',
               labels: {
-                color: 'rgba(255, 255, 255, 0.8)',
+                color: '#2d3748',
                 padding: 15
               }
             },
             title: {
               display: true,
               text: 'Pennsylvania Commute Emissions by Scenario',
-              color: 'rgba(255, 255, 255, 0.9)',
+              color: '#2d3748',
               font: {
                 size: 16
               }
@@ -487,8 +487,8 @@
 <style>
   .chapter-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #16213e 0%, #0f3460 100%);
-    color: white;
+    background: #f5f7fa;
+    color: #2d3748;
     padding: 4rem 2rem;
   }
 
@@ -499,13 +499,14 @@
 
   .chapter-header h1 {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 1rem;
+    color: #2c5282;
   }
 
   .subtitle {
     font-size: 1.5rem;
-    opacity: 0.9;
+    color: #4a5568;
   }
 
   .content-wrapper {
@@ -516,105 +517,117 @@
   .intro-section {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(78, 205, 196, 0.1);
-    border-left: 4px solid #4ecdc4;
+    background: white;
+    border-left: 4px solid #4299e1;
     border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-intro {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-intro h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-intro p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-intro strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .intro-text {
     font-size: 1.3rem;
     line-height: 1.8;
     margin: 0;
+    color: #2d3748;
+  }
+
+  .intro-text strong {
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .chart-narrative {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 8px;
     line-height: 1.7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .chart-narrative h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #4ecdc4;
+    color: #2c5282;
   }
 
   .chart-narrative p {
     font-size: 1.1rem;
     margin: 1rem 0;
-    opacity: 0.9;
+    color: #4a5568;
   }
 
   .chart-narrative strong {
-    color: #ffd93d;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .narrative-conclusion {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-conclusion h2 {
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-conclusion p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-conclusion strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .controls-section {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .controls-section h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
+    color: #2c5282;
   }
 
   .slider-group {
@@ -631,18 +644,19 @@
   .slider-header label {
     font-size: 1.3rem;
     font-weight: 600;
+    color: #2d3748;
   }
 
   .slider-value {
     font-size: 2rem;
-    font-weight: 800;
-    color: #4ecdc4;
+    font-weight: 700;
+    color: #2c5282;
   }
 
   input[type="range"] {
     width: 100%;
     height: 10px;
-    background: rgba(255, 255, 255, 0.2);
+    background: #e2e8f0;
     border-radius: 5px;
     outline: none;
     -webkit-appearance: none;
@@ -653,16 +667,16 @@
     appearance: none;
     width: 28px;
     height: 28px;
-    background: #4ecdc4;
+    background: #4299e1;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
 
   input[type="range"]::-moz-range-thumb {
     width: 28px;
     height: 28px;
-    background: #4ecdc4;
+    background: #4299e1;
     border-radius: 50%;
     cursor: pointer;
     border: none;
@@ -671,7 +685,7 @@
   .slider-description {
     margin-top: 0.5rem;
     font-size: 1rem;
-    opacity: 0.8;
+    color: #4a5568;
   }
 
   .quick-scenarios {
@@ -689,27 +703,32 @@
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: white;
+    color: #2c5282;
+    border: 2px solid #cbd5e0;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .quick-scenarios button:hover {
-    background: #4ecdc4;
-    border-color: #4ecdc4;
+    background: #4299e1;
+    border-color: #4299e1;
+    color: white;
     transform: translateY(-2px);
   }
 
   .quick-scenarios button.reset {
-    background: rgba(255, 107, 107, 0.2);
-    border-color: #ff6b6b;
+    background: white;
+    border-color: #cbd5e0;
+    color: #2d3748;
   }
 
   .quick-scenarios button.reset:hover {
-    background: #ff6b6b;
+    background: #c05621;
+    border-color: #c05621;
+    color: white;
   }
 
   .results-section {
@@ -720,6 +739,7 @@
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
+    color: #2c5282;
   }
 
   .impact-grid {
@@ -731,19 +751,22 @@
 
   .impact-card {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .impact-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .impact-card.primary {
-    background: rgba(78, 205, 196, 0.15);
-    border: 2px solid #4ecdc4;
+    background: #ebf8ff;
+    border: 2px solid #4299e1;
     grid-column: 1 / -1;
   }
 
@@ -756,14 +779,14 @@
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    opacity: 0.7;
+    color: #718096;
     margin-bottom: 0.5rem;
   }
 
   .impact-value {
     font-size: 3rem;
-    font-weight: 800;
-    color: #4ecdc4;
+    font-weight: 700;
+    color: #2c5282;
     line-height: 1;
   }
 
@@ -773,7 +796,7 @@
 
   .impact-unit {
     font-size: 1rem;
-    opacity: 0.8;
+    color: #4a5568;
     margin-top: 0.5rem;
   }
 
@@ -781,20 +804,22 @@
     margin-top: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #51cf66;
+    color: #38a169;
   }
 
   .mode-breakdown {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .mode-breakdown h3 {
     font-size: 1.8rem;
     margin-bottom: 2rem;
     text-align: center;
+    color: #2c5282;
   }
 
   .mode-bars {
@@ -817,7 +842,7 @@
 
   .bar-container {
     height: 40px;
-    background: rgba(255, 255, 255, 0.1);
+    background: #e2e8f0;
     border-radius: 20px;
     overflow: hidden;
   }
@@ -829,32 +854,34 @@
   }
 
   .bar.drive {
-    background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+    background: #c05621;
   }
 
   .bar.transit {
-    background: linear-gradient(90deg, #4ecdc4, #44a3d5);
+    background: #4299e1;
   }
 
   .bar.wfh {
-    background: linear-gradient(90deg, #51cf66, #37b24d);
+    background: #38a169;
   }
 
   .mode-pct {
     font-size: 1.3rem;
     font-weight: 700;
     text-align: right;
+    color: #2d3748;
   }
 
   .chart-section {
     margin: 4rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 12px;
     min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .chart-section canvas {
@@ -867,27 +894,34 @@
     text-align: center;
     padding: 2rem;
     font-size: 1.2rem;
-    opacity: 0.8;
+    color: #4a5568;
   }
 
   .reality-check {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 215, 0, 0.1);
-    border-left: 4px solid #ffd93d;
+    background: #fef5e7;
+    border-left: 4px solid #c05621;
     border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .reality-check h3 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .reality-check p {
     font-size: 1.2rem;
     line-height: 1.8;
     margin: 1rem 0;
+    color: #2d3748;
+  }
+
+  .reality-check strong {
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .reality-check .emphasis {
@@ -895,7 +929,7 @@
     font-weight: 700;
     text-align: center;
     margin-top: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .loading-state {

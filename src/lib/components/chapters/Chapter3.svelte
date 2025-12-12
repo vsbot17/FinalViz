@@ -160,8 +160,8 @@
 <style>
   .chapter-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #16213e 0%, #0f3460 100%);
-    color: white;
+    background: #f5f7fa;
+    color: #2d3748;
     padding: 4rem 2rem;
   }
 
@@ -172,13 +172,14 @@
 
   .chapter-header h1 {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 1rem;
+    color: #2c5282;
   }
 
   .subtitle {
     font-size: 1.5rem;
-    opacity: 0.9;
+    color: #4a5568;
   }
 
   .content-wrapper {
@@ -197,27 +198,28 @@
   .narrative-intro {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-intro h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-intro p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-intro strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .intro-text {
@@ -229,42 +231,43 @@
   .narrative-conclusion {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-conclusion h2 {
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-conclusion p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-conclusion strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .transition-to-solutions {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #ffd93d;
+    color: #2d3748;
     margin-top: 2rem;
     padding: 2rem;
-    background: rgba(255, 215, 0, 0.15);
-    border-left: 4px solid #ffd93d;
+    background: #ebf8ff;
+    border-left: 4px solid #4299e1;
     border-radius: 8px;
   }
 
   .transition-to-solutions strong {
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .story-section {
@@ -275,7 +278,7 @@
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .story-content {
@@ -287,42 +290,56 @@
 
   .story-point {
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 12px;
-    border-left: 4px solid #4ecdc4;
+    border-left: 4px solid #4299e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .story-point h3 {
     font-size: 1.5rem;
     margin: 0 0 1rem 0;
-    color: #4ecdc4;
+    color: #2c5282;
   }
 
   .story-point p {
     font-size: 1.1rem;
     line-height: 1.7;
     margin: 0.75rem 0;
+    color: #2d3748;
+  }
+
+  .story-point strong {
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .insight-box {
     margin: 3rem auto;
     padding: 2rem;
     max-width: 800px;
-    background: rgba(255, 215, 0, 0.1);
-    border-left: 4px solid #ffd93d;
+    background: white;
+    border-left: 4px solid #4299e1;
     border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .insight-box h3 {
     font-size: 1.8rem;
     margin: 0 0 1rem 0;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .insight-box p {
     font-size: 1.2rem;
     line-height: 1.8;
     margin: 0;
+    color: #2d3748;
+  }
+
+  .insight-box strong {
+    color: #2c5282;
+    font-weight: 600;
   }
 
   @media (max-width: 768px) {

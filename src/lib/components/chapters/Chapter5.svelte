@@ -502,8 +502,8 @@
 <style>
   .chapter-container {
     min-height: 100vh;
-    background: linear-gradient(180deg, #16213e 0%, #0f3460 100%);
-    color: white;
+    background: #f5f7fa;
+    color: #2d3748;
     padding: 4rem 2rem;
   }
 
@@ -514,13 +514,14 @@
 
   .chapter-header h1 {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 1rem;
+    color: #2c5282;
   }
 
   .subtitle {
     font-size: 1.5rem;
-    opacity: 0.9;
+    color: #4a5568;
   }
 
   .content-wrapper {
@@ -531,96 +532,106 @@
   .intro-section {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(78, 205, 196, 0.1);
-    border-left: 4px solid #4ecdc4;
+    background: white;
+    border-left: 4px solid #4299e1;
     border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-intro {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-intro h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-intro p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-intro strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .intro-text {
     font-size: 1.3rem;
     line-height: 1.8;
     margin: 0;
+    color: #2d3748;
+  }
+
+  .intro-text strong {
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .narrative-conclusion {
     margin: 4rem 0;
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: white;
+    border-radius: 12px;
     line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .narrative-conclusion h2 {
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
   .narrative-conclusion p {
     font-size: 1.2rem;
     margin: 1.5rem 0;
-    opacity: 0.95;
+    color: #2d3748;
   }
 
   .narrative-conclusion strong {
-    color: #4ecdc4;
-    font-weight: 700;
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .transition-to-action {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #ffd93d;
+    color: #2d3748;
     margin-top: 2rem;
     padding: 2rem;
-    background: rgba(255, 215, 0, 0.15);
-    border-left: 4px solid #ffd93d;
+    background: #ebf8ff;
+    border-left: 4px solid #4299e1;
     border-radius: 8px;
   }
 
   .transition-to-action strong {
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .pa-baseline {
     margin: 3rem 0;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: white;
     border-radius: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .pa-baseline h3 {
     font-size: 1.5rem;
     margin: 0 0 1.5rem 0;
-    color: #ffd93d;
+    color: #2c5282;
     text-align: center;
   }
 
@@ -633,14 +644,15 @@
   .baseline-stat {
     text-align: center;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: #f7fafc;
     border-radius: 8px;
+    border: 1px solid #e2e8f0;
   }
 
   .baseline-label {
     display: block;
     font-size: 0.9rem;
-    opacity: 0.8;
+    color: #718096;
     margin-bottom: 0.5rem;
   }
 
@@ -648,7 +660,7 @@
     display: block;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #4ecdc4;
+    color: #2c5282;
   }
 
   .case-studies-grid {
@@ -660,26 +672,28 @@
 
   .case-study-card {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: white;
     border-radius: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #e2e8f0;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .case-study-card:hover,
   .case-study-card:focus {
-    background: rgba(255, 255, 255, 0.12);
-    transform: translateY(-5px);
-    border-color: #4ecdc4;
-    outline: 2px solid #4ecdc4;
+    background: white;
+    transform: translateY(-3px);
+    border-color: #4299e1;
+    outline: 2px solid #4299e1;
     outline-offset: 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .case-study-card.expanded {
-    background: rgba(78, 205, 196, 0.15);
-    border-color: #4ecdc4;
-    box-shadow: 0 4px 20px rgba(78, 205, 196, 0.3);
+    background: #ebf8ff;
+    border-color: #4299e1;
+    box-shadow: 0 4px 20px rgba(66, 153, 225, 0.2);
   }
 
   .card-header {
@@ -692,25 +706,25 @@
   .county-title h2 {
     font-size: 2rem;
     margin: 0 0 0.5rem 0;
-    color: #4ecdc4;
+    color: #2c5282;
   }
 
   .location {
     font-size: 1rem;
-    opacity: 0.8;
+    color: #718096;
     margin: 0;
   }
 
   .expand-icon {
     font-size: 2rem;
     font-weight: 300;
-    color: #4ecdc4;
+    color: #4299e1;
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(78, 205, 196, 0.2);
+    background: #ebf8ff;
     border-radius: 50%;
   }
 
@@ -727,14 +741,15 @@
 
   .stat-item {
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: #f7fafc;
     border-radius: 8px;
+    border: 1px solid #e2e8f0;
   }
 
   .stat-label {
     display: block;
     font-size: 0.85rem;
-    opacity: 0.8;
+    color: #718096;
     margin-bottom: 0.5rem;
   }
 
@@ -742,40 +757,41 @@
     display: block;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ffd93d;
+    color: #2c5282;
     margin-bottom: 0.25rem;
   }
 
   .stat-value.highlight {
-    color: #4ecdc4;
+    color: #2c5282;
   }
 
   .stat-value.success {
-    color: #51cf66;
+    color: #38a169;
   }
 
   .stat-comparison {
     display: block;
     font-size: 0.8rem;
-    opacity: 0.7;
+    color: #718096;
   }
 
   .stat-comparison.positive {
-    color: #51cf66;
+    color: #38a169;
   }
 
   .mini-chart-container {
     margin: 1.5rem 0;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: #f7fafc;
     border-radius: 8px;
     min-height: 120px;
+    border: 1px solid #e2e8f0;
   }
 
   .expanded-content {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    border-top: 2px solid #e2e8f0;
     animation: slideDown 0.3s ease-out;
   }
 
@@ -793,21 +809,28 @@
   .why-it-works {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: rgba(78, 205, 196, 0.1);
-    border-left: 4px solid #4ecdc4;
+    background: #ebf8ff;
+    border-left: 4px solid #4299e1;
     border-radius: 8px;
+  }
+
+  .why-it-works h4 {
+    color: #2c5282;
+  }
+
+  .why-it-works p {
+    color: #2d3748;
+  }
+
+  .why-it-works strong {
+    color: #2c5282;
+    font-weight: 600;
   }
 
   .why-it-works h3 {
     font-size: 1.3rem;
     margin: 0 0 1rem 0;
-    color: #4ecdc4;
-  }
-
-  .why-it-works p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin: 0;
+    color: #2c5282;
   }
 
   .key-features {
@@ -817,7 +840,7 @@
   .key-features h3 {
     font-size: 1.3rem;
     margin: 0 0 1rem 0;
-    color: #ffd93d;
+    color: #2c5282;
   }
 
   .key-features ul {
@@ -834,25 +857,33 @@
     line-height: 1.6;
   }
 
+  .key-features li {
+    color: #2d3748;
+  }
+
   .key-features li::before {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #51cf66;
+    color: #38a169;
     font-weight: bold;
   }
 
   .impact-summary {
     padding: 1.5rem;
-    background: rgba(255, 215, 0, 0.1);
-    border-left: 4px solid #ffd93d;
+    background: #fff5eb;
+    border-left: 4px solid #c05621;
     border-radius: 8px;
   }
 
   .impact-summary h3 {
     font-size: 1.3rem;
     margin: 0 0 1rem 0;
-    color: #ffd93d;
+    color: #2c5282;
+  }
+
+  .impact-summary p {
+    color: #2d3748;
   }
 
   .impact-stats {
