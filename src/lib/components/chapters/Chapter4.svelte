@@ -296,6 +296,21 @@
     </div>
   {:else}
   <div class="content-wrapper">
+    <div class="narrative-intro">
+      <h2>Modeling Pennsylvania's Future</h2>
+      <p>
+        We've seen the problem: Pennsylvania generates <strong>{(PA_BASELINE.current_emissions_tons / 1_000_000).toFixed(1)} million tons</strong> 
+        of CO₂ annually from commutes. We've mapped where emissions are concentrated and discovered that 
+        transit infrastructure dramatically reduces per-person impact. Now comes the crucial question: 
+        <strong>What if we actually changed how we commute?</strong>
+      </p>
+      <p>
+        The data gives us the power to model different futures. By adjusting just two variables—transit 
+        adoption and remote work—we can see exactly how much Pennsylvania could reduce its carbon footprint. 
+        The results might surprise you.
+      </p>
+    </div>
+
     <div class="intro-section">
       <p class="intro-text">
         The good news? <strong>Small shifts create massive impact.</strong> 
@@ -415,6 +430,20 @@
     </div>
 
     <div class="chart-section">
+      <div class="chart-narrative">
+        <h3>Visualizing the Impact</h3>
+        <p>
+          The chart below compares your scenario to Pennsylvania's current emissions. The red bars show 
+          emissions from driving alone, while the teal bars represent public transit emissions. 
+          <strong>Notice how shifting even a small percentage of commuters to transit or remote work 
+          dramatically reduces the red bars</strong>—and the total height of each column.
+        </p>
+        <p>
+          This visualization makes the math tangible: every percentage point you shift represents real 
+          tons of CO₂ prevented, real cars taken off the road, real progress toward Pennsylvania's 
+          climate goals.
+        </p>
+      </div>
       {#if dataLoaded}
         <canvas bind:this={chartCanvas}></canvas>
       {:else}
@@ -434,6 +463,21 @@
       </p>
       <p class="emphasis">
         The question isn't "Can we?" - it's "Will we?"
+      </p>
+    </div>
+
+    <div class="narrative-conclusion">
+      <h2>From Model to Reality</h2>
+      <p>
+        The scenarios you've explored aren't theoretical. They're based on real data from Pennsylvania's 
+        commuters, real emission factors, and real infrastructure that already exists in parts of the state. 
+        <strong>Every percentage point of transit shift or remote work adoption represents a concrete 
+        path to lower emissions</strong>.
+      </p>
+      <p>
+        But models only show potential. To turn potential into reality, we need to see what's already 
+        working. The next chapter explores Pennsylvania counties that are leading the way—proving that 
+        lower emissions are achievable with the right infrastructure and planning.
       </p>
     </div>
   </div>
@@ -477,10 +521,87 @@
     border-radius: 12px;
   }
 
+  .narrative-intro {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    line-height: 1.8;
+  }
+
+  .narrative-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffd93d;
+    text-align: center;
+  }
+
+  .narrative-intro p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  .narrative-intro strong {
+    color: #4ecdc4;
+    font-weight: 700;
+  }
+
   .intro-text {
     font-size: 1.3rem;
     line-height: 1.8;
     margin: 0;
+  }
+
+  .chart-narrative {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    line-height: 1.7;
+  }
+
+  .chart-narrative h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4ecdc4;
+  }
+
+  .chart-narrative p {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    opacity: 0.9;
+  }
+
+  .chart-narrative strong {
+    color: #ffd93d;
+    font-weight: 700;
+  }
+
+  .narrative-conclusion {
+    margin: 4rem 0;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    line-height: 1.8;
+  }
+
+  .narrative-conclusion h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #ffd93d;
+    text-align: center;
+  }
+
+  .narrative-conclusion p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  .narrative-conclusion strong {
+    color: #4ecdc4;
+    font-weight: 700;
   }
 
   .controls-section {

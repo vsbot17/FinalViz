@@ -253,16 +253,14 @@
       // Resources Section
       doc.setFontSize(14);
       doc.setFont('helvetica', 'bold');
-      doc.text('PA-Specific Resources', margin, yPos);
+      doc.text('Resources', margin, yPos);
       yPos += 10;
 
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
       const resources = [
-        '• SEPTA Trip Planner: septa.org/trip-planner/',
-        '• Port Authority Schedules: portauthority.org',
-        '• PA Clean Air Act: dep.pa.gov/Business/Air',
-        '• PA Carpool Programs: 511pa.com/carpool/'
+        '• PA Driver & Vehicle Services: pa.gov/agencies/dmv',
+        '• Port Authority Schedules: rideprt.org/all-schedules/'
       ];
 
       resources.forEach(resource => {
@@ -306,6 +304,23 @@
     </div>
   {:else}
   <div class="content-wrapper">
+    <div class="narrative-intro">
+      <h2>Your Pennsylvania Choice</h2>
+      <p>
+        We've journeyed through the data together. We've seen Pennsylvania's <strong>{(paAvgCO2PerPerson * 6179069 / 1_000_000).toFixed(1)} million tons</strong> 
+        of annual commute emissions. We've mapped where they're concentrated, discovered how transit 
+        infrastructure reduces per-person impact, modeled different scenarios, and explored communities 
+        that are already leading the way.
+      </p>
+      <p>
+        Now comes the moment that matters: <strong>What will you do?</strong> The data shows that 
+        Pennsylvania can significantly reduce its carbon footprint by shifting how we commute. But 
+        "we" starts with you. Every commuter who switches to transit, works remotely, or finds another 
+        alternative isn't just reducing their personal emissions—they're contributing to Pennsylvania's 
+        collective impact.
+      </p>
+    </div>
+
     <div class="intro-section">
       <p class="intro-text">
         Now it's your turn. Let's calculate your personal path to lower emissions and see how small changes 
@@ -413,14 +428,11 @@
             </div>
           </div>
           <div class="option-resources">
-            <a href="https://www.septa.org/trip-planner/" target="_blank" rel="noopener noreferrer" class="resource-link">
-              Check SEPTA Trip Planner →
+            <a href="https://www.pa.gov/agencies/dmv" target="_blank" rel="noopener noreferrer" class="resource-link">
+              PA Driver & Vehicle Services →
             </a>
-            <a href="https://www.portauthority.org/paac/SchedulesMaps/Schedules.aspx" target="_blank" rel="noopener noreferrer" class="resource-link">
+            <a href="https://www.rideprt.org/all-schedules/" target="_blank" rel="noopener noreferrer" class="resource-link">
               Port Authority Schedules →
-            </a>
-            <a href="https://www.cattransit.com/routes-schedules" target="_blank" rel="noopener noreferrer" class="resource-link">
-              CAT Transit Routes →
             </a>
           </div>
         </div>
@@ -549,32 +561,37 @@
       </div>
     </div>
 
+    <div class="final-narrative">
+      <h2>Pennsylvania's Path Forward</h2>
+      <p>
+        The data is clear: <strong>Pennsylvania can significantly reduce its carbon footprint by shifting 
+        how we commute—and the data shows exactly where and how.</strong>
+      </p>
+      <p>
+        We've seen that emissions are concentrated in specific regions, that transit infrastructure 
+        dramatically reduces per-person impact, that modest shifts in behavior could prevent millions 
+        of tons of CO₂, and that communities across Pennsylvania are already proving these solutions work.
+      </p>
+      <p>
+        The question isn't whether change is possible. The COVID-19 pandemic proved that large-scale 
+        shifts in commuting behavior can happen rapidly. The question is whether we'll choose to make 
+        those changes permanent—and expand them.
+      </p>
+      <p class="call-to-action">
+        <strong>Your commute is part of Pennsylvania's climate solution.</strong> Whether you switch to 
+        transit, work remotely, move closer, or carpool—every choice matters. Download your personalized 
+        report, explore your options, and join the communities across Pennsylvania that are already 
+        leading the way toward a cleaner commute future.
+      </p>
+      <p class="final-statement">
+        The data shows the path. The choice is yours.
+      </p>
+    </div>
+
     <div class="actions-section">
       <button class="download-btn" on:click={downloadReport}>
         📄 Download Personalized Report
       </button>
-      
-      <div class="pa-resources">
-        <h3>PA-Specific Resources</h3>
-        <div class="resources-grid">
-          <a href="https://www.septa.org/trip-planner/" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <h4>SEPTA Trip Planner</h4>
-            <p>Plan your transit route in Philadelphia</p>
-          </a>
-          <a href="https://www.portauthority.org/paac/SchedulesMaps/Schedules.aspx" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <h4>Port Authority Schedules</h4>
-            <p>Pittsburgh transit schedules and maps</p>
-          </a>
-          <a href="https://www.dep.pa.gov/Business/Air/Pages/default.aspx" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <h4>PA Clean Air Act Incentives</h4>
-            <p>Learn about clean air programs</p>
-          </a>
-          <a href="https://www.511pa.com/carpool/" target="_blank" rel="noopener noreferrer" class="resource-card">
-            <h4>PA Carpool Programs</h4>
-            <p>Find carpool partners in your area</p>
-          </a>
-        </div>
-      </div>
     </div>
   </div>
   {/if}
@@ -617,10 +634,91 @@
     border-radius: 12px;
   }
 
+  .narrative-intro {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    line-height: 1.8;
+  }
+
+  .narrative-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffd93d;
+    text-align: center;
+  }
+
+  .narrative-intro p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  .narrative-intro strong {
+    color: #4ecdc4;
+    font-weight: 700;
+  }
+
   .intro-text {
     font-size: 1.3rem;
     line-height: 1.8;
     margin: 0;
+  }
+
+  .final-narrative {
+    margin: 4rem 0;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  .final-narrative h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffd93d;
+  }
+
+  .final-narrative p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.95;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .final-narrative strong {
+    color: #4ecdc4;
+    font-weight: 700;
+  }
+
+  .call-to-action {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffd93d;
+    margin-top: 2.5rem;
+    padding: 2.5rem;
+    background: rgba(255, 215, 0, 0.15);
+    border-left: 4px solid #ffd93d;
+    border-radius: 8px;
+  }
+
+  .call-to-action strong {
+    color: #ffd93d;
+  }
+
+  .final-statement {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #4ecdc4;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(78, 205, 196, 0.15);
+    border: 2px solid #4ecdc4;
+    border-radius: 12px;
   }
 
   .calculator-section {
@@ -882,46 +980,6 @@
     box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
   }
 
-  .pa-resources h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: #4ecdc4;
-  }
-
-  .resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .resource-card {
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    text-decoration: none;
-    color: white;
-    transition: transform 0.3s, border-color 0.3s;
-  }
-
-  .resource-card:hover {
-    transform: translateY(-3px);
-    border-color: #4ecdc4;
-  }
-
-  .resource-card h4 {
-    font-size: 1.2rem;
-    margin: 0 0 0.5rem 0;
-    color: #4ecdc4;
-  }
-
-  .resource-card p {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    margin: 0;
-  }
-
   .loading-state {
     text-align: center;
     padding: 4rem 2rem;
@@ -935,10 +993,6 @@
     }
 
     .options-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .resources-grid {
       grid-template-columns: 1fr;
     }
 

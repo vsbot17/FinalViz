@@ -283,6 +283,20 @@
     </div>
   {:else}
   <div class="content-wrapper">
+    <div class="narrative-intro">
+      <h2>Proof That It Works</h2>
+      <p>
+        The scenarios we modeled in Chapter 4 show what's possible. But models are only as good as the 
+        assumptions behind them. The real question is: <strong>Do these solutions actually work in practice?</strong>
+      </p>
+      <p>
+        The answer is yes—and we have the proof. Across Pennsylvania, several counties and communities 
+        have already achieved dramatically lower commute emissions through smart infrastructure investment, 
+        transit development, and urban planning. These aren't theoretical models; they're real places 
+        where people live, work, and commute with a fraction of the carbon footprint of the state average.
+      </p>
+    </div>
+
     <div class="intro-section">
       <p class="intro-text">
         Some Pennsylvania communities are already showing us the path forward. 
@@ -459,6 +473,28 @@
         </p>
       </div>
     </div>
+
+    <div class="narrative-conclusion">
+      <h2>From Case Studies to Your Choice</h2>
+      <p>
+        Centre County, Montgomery County, and Centre City Philadelphia prove that lower emissions are 
+        achievable. They show that <strong>transit infrastructure, compact design, and smart planning 
+        can reduce per-person emissions by 20-40%</strong> compared to Pennsylvania's average—without 
+        requiring people to sacrifice their quality of life.
+      </p>
+      <p>
+        But these case studies also reveal something important: <strong>the solutions aren't one-size-fits-all</strong>. 
+        What works in a university town might differ from what works in a dense urban core or a suburban 
+        region. The common thread is infrastructure investment and planning that prioritizes alternatives 
+        to solo driving.
+      </p>
+      <p class="transition-to-action">
+        The data shows where emissions are concentrated, how transit reduces impact, what scenarios could 
+        achieve, and what's already working. Now it's time to make it personal: <strong>What can you do 
+        to reduce your commute emissions?</strong> The final chapter helps you calculate your personal 
+        impact and explore your options.
+      </p>
+    </div>
   </div>
   {/if}
 </div>
@@ -500,10 +536,77 @@
     border-radius: 12px;
   }
 
+  .narrative-intro {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    line-height: 1.8;
+  }
+
+  .narrative-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffd93d;
+    text-align: center;
+  }
+
+  .narrative-intro p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  .narrative-intro strong {
+    color: #4ecdc4;
+    font-weight: 700;
+  }
+
   .intro-text {
     font-size: 1.3rem;
     line-height: 1.8;
     margin: 0;
+  }
+
+  .narrative-conclusion {
+    margin: 4rem 0;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    line-height: 1.8;
+  }
+
+  .narrative-conclusion h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #ffd93d;
+    text-align: center;
+  }
+
+  .narrative-conclusion p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  .narrative-conclusion strong {
+    color: #4ecdc4;
+    font-weight: 700;
+  }
+
+  .transition-to-action {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffd93d;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 215, 0, 0.15);
+    border-left: 4px solid #ffd93d;
+    border-radius: 8px;
+  }
+
+  .transition-to-action strong {
+    color: #ffd93d;
   }
 
   .pa-baseline {

@@ -193,6 +193,30 @@
     </div>
   </div>
 
+  <div class="narrative-section">
+    <h2>The Hidden Cost of Getting to Work</h2>
+    <p>
+      Every morning, millions of Pennsylvanians start their cars, board buses, or walk to work. 
+      This daily ritual seems routine—just part of life. But when we multiply these individual choices 
+      across <strong>{PA_STATS.totalCommuters.toLocaleString()} commuters</strong>, the numbers become staggering.
+    </p>
+    <p>
+      The data reveals a truth we rarely discuss: <strong>how we get to work is one of Pennsylvania's 
+      largest sources of carbon emissions</strong>. Those {PA_STATS.avgCommuteMinutes} minutes you spend 
+      commuting each way? They add up to <strong>{(PA_STATS.annualHoursLost / 1_000_000).toFixed(0)} million hours</strong> 
+      lost annually—time that could be spent with family, on hobbies, or simply resting.
+    </p>
+    <p>
+      But time isn't the only cost. Every mile driven, every gallon of gas burned, releases carbon dioxide 
+      into our atmosphere. Pennsylvania's commutes generate <strong>{(PA_STATS.annualCO2Tons / 1_000_000).toFixed(1)} million tons</strong> 
+      of CO₂ every year—equivalent to keeping <strong>{PA_STATS.carsEquivalent.toLocaleString()} cars</strong> 
+      running continuously, year-round.
+    </p>
+    <p class="emphasis-text">
+      This is Pennsylvania's hidden climate burden. And the data shows exactly where and how we can change it.
+    </p>
+  </div>
+
   <div class="transition-text">
     <p>But this burden isn't shared equally across Pennsylvania...</p>
     <div class="scroll-indicator">↓ Keep scrolling to see where emissions are highest</div>
@@ -448,6 +472,45 @@
   .insight-box li {
     padding: 0.5rem 0;
     font-size: 1.1rem;
+  }
+
+  .narrative-section {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    line-height: 1.8;
+  }
+
+  .narrative-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffd93d;
+    text-align: center;
+  }
+
+  .narrative-section p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  .narrative-section strong {
+    color: #4ecdc4;
+    font-weight: 700;
+  }
+
+  .narrative-section .emphasis-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    color: #ffd93d;
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 4px solid #ffd93d;
+    border-radius: 8px;
   }
 
   .transition-text {
